@@ -17,9 +17,6 @@
 #ifndef QCOM_AUDIO_PLATFORM_API_H
 #define QCOM_AUDIO_PLATFORM_API_H
 
-#define CODEC_BACKEND_DEFAULT_BIT_WIDTH 16
-#define CODEC_BACKEND_DEFAULT_SAMPLE_RATE 48000
-
 void *platform_init(struct audio_device *adev);
 void platform_deinit(void *platform);
 const char *platform_get_snd_device_name(snd_device_t snd_device);
@@ -42,10 +39,4 @@ int platform_edid_get_max_channels(void *platform);
 /* returns the latency for a usecase in Us */
 int64_t platform_render_latency(audio_usecase_t usecase);
 
-struct audio_offload_info_t;
-uint32_t platform_get_compress_offload_buffer_size(audio_offload_info_t* info);
-uint32_t platform_get_pcm_offload_buffer_size(audio_offload_info_t* info);
-
-bool platform_check_and_set_codec_backend_cfg(struct audio_device* adev, struct audio_usecase *usecase);
-bool platform_check_24_bit_support();
-#endif // AUDIO_PLATFORM_API_H
+#endif // QCOM_AUDIO_PLATFORM_API_H

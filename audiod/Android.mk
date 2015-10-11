@@ -1,7 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
-include external/stlport/libstlport.mk
 
 LOCAL_SRC_FILES:= \
 	audiod_main.cpp \

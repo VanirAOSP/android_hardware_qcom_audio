@@ -228,6 +228,7 @@ static bool is_supported_format(audio_format_t format)
 {
     if (format == AUDIO_FORMAT_MP3 ||
         format == AUDIO_FORMAT_AAC ||
+        format == AUDIO_FORMAT_AAC_LC ||
         format == AUDIO_FORMAT_AAC_HE_V1 ||
         format == AUDIO_FORMAT_AAC_HE_V2)
         return true;
@@ -269,7 +270,7 @@ static int get_snd_codec_id(audio_format_t format)
         break;
 #endif
     default:
-        ALOGE("%s: Unsupported audio format", __func__);
+        ALOGE("%s: Unsupported audio format %x", __func__, format);
     }
 
     return id;
@@ -1603,7 +1604,7 @@ static uint32_t out_get_latency(const struct audio_stream_out *stream)
            (out->config.rate);
     }
 
-    ALOGV("%s: Latency %d", latency);
+    ALOGV("%s: Latency %d", __func__, latency);
     return latency;
 }
 
